@@ -36,7 +36,7 @@ class Usuario extends CI_Controller {
 		}	
 		  		
         if($usuario){
-            $this->session->set_userdata("adm", $usuario);
+            $this->session->set_userdata("usuario", $usuario);
             $this->load->view('board', $dados);
         }else{
             $dados = array("mensagem" => "Não foi possível fazer o Login!");

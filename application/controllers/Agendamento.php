@@ -49,6 +49,8 @@ class Agendamento extends CI_Controller {
 		$this->load->model("Agendamento_model");
 		$id = $this->input->post("id_paciente");
 		$result = $this->Agendamento_model->atendimento($id);
-		$this->load->view("board");
+		$this->load->model("Agendamento_model");
+		$dados["agenda"] = $this->Agendamento_model->selectAll();
+		$this->load->view("board", $dados);
 	}
 }

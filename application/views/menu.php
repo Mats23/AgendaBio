@@ -26,7 +26,7 @@
           </div>
       </li>
        <ul class="nav navbar-nav navbar-right">
-      <li><a class="nav-link" href="<?=base_url("home")?>">Sair</a></li>
+      <li><a class="nav-link" href="<?=base_url("home/logout")?>">Sair</a></li>
     </ul>
     </ul>
    </nav>

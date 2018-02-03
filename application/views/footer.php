@@ -38,8 +38,8 @@ $('input').change(function(e) {
   <script type="text/javascript">
         $(document).ready(function () {
           jQuery("#iCpf").mask("999.999.999-99");
-          jQuery("#iCel").mask("(99) 99999-9999");
-          jQuery("#iTel").mask("(99) 9999-9999");
+          jQuery("#iCel").mask("(99)99999-9999");
+          jQuery("#iTel").mask("(99)9999-9999");
           jQuery("#iRG").mask("99.999.999-99");
           jQuery("#iCEP").mask("99.999-999");
         });

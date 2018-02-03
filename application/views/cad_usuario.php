@@ -37,12 +37,13 @@
 			  	</div>
 			 </div>
 			 <div class="form-group">
-			 	
-				<select name="id_tipo_usuario"  class="form-control col-sm-2">
-					<?php foreach ($cargo as $cargos):?>
-						<option value="<?=$cargos["id"]?>"><?=$cargos["cargo"]?></option>
-					<?php endforeach ?>
-				</select>	
+			 	<div class="col-sm-12">
+					<select name="id_tipo_usuario"  class="form-control col-sm-2">
+						<?php foreach ($cargo as $cargos):?>
+							<option value="<?=$cargos["id"]?>"><?=$cargos["cargo"]?></option>
+						<?php endforeach ?>
+					</select>	
+				</div>	
 			 </div>
 		</div>	
 			<div class="container">

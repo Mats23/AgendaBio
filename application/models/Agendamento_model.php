@@ -12,7 +12,7 @@ class Agendamento_model extends CI_Model{
 
 	}
 	public function selectAll(){
-		$sql = "SELECT p.id, p.nome, c.numero, a.data FROM paciente AS p JOIN contato AS c JOIN agendamento AS a WHERE p.id = c.id_paciente GROUP BY nome";
+		$sql = "SELECT p.id, p.nome, c.numero, a.data, a.atendido FROM paciente AS p JOIN contato AS c JOIN agendamento AS a WHERE p.id = c.id_paciente GROUP BY nome";
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}
@@ -40,11 +40,9 @@ class Agendamento_model extends CI_Model{
 
 }
 	public function atendimento($id){
-		$date = date('Y-m-d H:i');
-		$data = array(
-					"id_paciente" => $id,
-				     "data" => $date);
-		$result = $this->db->insert("agendamento", $data);
+		$this->db->where("id_paciente", $id);
+		$data = array("atendido" => 1);
+		$result = $this->db->update("agendamento", $data);
 		return $result;
 
 } 

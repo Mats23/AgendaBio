@@ -25,6 +25,7 @@
 		            	<td><?=$agendas["nome"]?></td>
 		            	<td><?=$agendas["data"]?></td>
 		            	<td><?=$agendas["numero"]?></td>
+		            	<td><?php if($agendas["atendido"]):?><p class="text-success">Atendido</p><?php endif ?></td>
 		              <form method="post" action="<?=base_url("agendamento/detalhe")?>">
 		              	<td><button type="submit" class="btn btn-primary" value="<?=$agendas["id"]?>" name="id_detalhe">Detalhamento</button></td>
 		              </form>		

@@ -11,7 +11,7 @@
         		<p class="alert-danger"><?=$mensagem_erro?></p>
         	</center>  
       <?php }?>	
-   </div> 	 
+   	 
 	  <form class="form-horizontal" method="post" action="<?=base_url("usuario/editarUser")?>">
 	  	<div class="container">
 		  	<div class="form-group">
@@ -29,19 +29,19 @@
 				</div>
 			</div>
 			 <div class="form-group">
-				<select name="id_tipo_usuario"  class="form-control col-sm-2">
-					<?php foreach ($cargo as $cargos):?>
-						<?php $selected = ($user["cargo"] == $cargos["cargo"])? "selected=\"selected\"" : null; ?>
-						<option value="<?=$cargos["id"]?>"><?=$cargos["cargo"]?></option>
+				<div class="col-sm-10">
+					<select name="id_tipo_usuario"  class="form-control col-sm-2">
+						<?php foreach ($cargo as $cargos):?>
+							<?php $selected = ($user["cargo"] == $cargos["cargo"])? "selected=\"selected\"" : null; ?>
+							<option value="<?=$cargos["id"]?>"><?=$cargos["cargo"]?></option>
 
-					<?php endforeach ?>
-				</select>	
+						<?php endforeach ?>
+					</select>
+				</div>			
 			</div>
-			<div class="container">
 		        <div class="col-sm-2">
 		            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
 		        </div>
-		    </div>
-	
+		</div> 
 	  </form>
 <?php $this->load->view("footer") ?>

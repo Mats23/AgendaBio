@@ -9,9 +9,20 @@
 		  <li class="list-group-item">Observação: <?=$info["informacao"]?></li>
 		  <li class="list-group-item">Dia agendado: <?=$info["data"]?></li>
 		</ul>
-		<br>
-		<form action="<?=base_url("board")?>">
-			<button type="submit" class="btn btn-primary">Voltar</button>
-		</form>
+	<br>
+	<div class="container">
+		<div class="form-group">
+			<div class="row">	
+				<form action="<?=base_url("board")?>">
+					<button type="submit" class="btn btn-primary">Voltar</button>
+				</form>
+				<div class="col-sm-4">
+					<form method="post" action="<?=base_url("agendamento/atendido")?>">
+						<input type="hidden" name="id_paciente" value="<?=$info["id"]?>">
+						<button type="submit" id="atendeu" class="btn btn-success">Atendido</button>
+					</form>
+				</div>		
+			</div>	
+		</div>		
 	</div>
 <?php $this->load->view('footer') ?>	

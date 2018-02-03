@@ -25,9 +25,11 @@
 				<textarea name="obs_paciente" required class="form-control" rows="4" cols="5"></textarea>
 			</div>	  		
 	  	</div>
-	  	<div class="form-group">
-	  		<button type="submit" class="btn btn-primary">Agendar</button>
-	  	</div>		
+	  	<div class="container">
+		  	<div class="form-group">
+		  		<button type="submit" class="btn btn-primary">Agendar</button>
+		  	</div>
+		</div>	  			
 	  </form>		
 	</div> 
 <?php $this->load->view("footer") ?>  
