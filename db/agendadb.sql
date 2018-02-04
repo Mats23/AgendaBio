@@ -32,11 +32,6 @@ CREATE TABLE `agendamento` (
 
 /*Data for the table `agendamento` */
 
-insert  into `agendamento`(`id`,`id_paciente`,`data`,`atendido`) values 
-(50,38,'2018-02-22',1),
-(51,36,'2018-01-18',1),
-(53,46,'2018-02-09',1);
-
 /*Table structure for table `contato` */
 
 DROP TABLE IF EXISTS `contato`;
@@ -52,14 +47,6 @@ CREATE TABLE `contato` (
 ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 /*Data for the table `contato` */
-
-insert  into `contato`(`id`,`id_paciente`,`tipo`,`numero`) values 
-(62,36,'celular','71993760967'),
-(63,36,'celular2','7193760967'),
-(64,36,'comercial','77777777777'),
-(65,36,'residencial','71330089473'),
-(70,38,'celular','77777777777'),
-(71,38,'celular2','88888888888');
 
 /*Table structure for table `endereco` */
 
@@ -79,15 +66,6 @@ CREATE TABLE `endereco` (
 
 /*Data for the table `endereco` */
 
-insert  into `endereco`(`id`,`id_paciente`,`rua`,`bairro`,`cidade`,`numero_residencia`) values 
-(11,36,'Travessa Daiane Matos','Periperi','Salvador','3'),
-(13,38,'Travessa Daiane Matos','Periperi','Salvador','10'),
-(17,NULL,'Travessa Daiane Matos','Periperi','Salvador','3'),
-(18,43,'Travessa Daiane Matos','Periperi','Salvador','3'),
-(19,44,'Travessa Daiane Matos','Periperi','Salvador','3'),
-(20,45,'Travessa Daiane Matos','Periperi','Salvador','3'),
-(21,46,'dez','vinte','Salvador','20');
-
 /*Table structure for table `observacao` */
 
 DROP TABLE IF EXISTS `observacao`;
@@ -102,11 +80,6 @@ CREATE TABLE `observacao` (
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 /*Data for the table `observacao` */
-
-insert  into `observacao`(`id`,`id_agendamento`,`informacao`) values 
-(25,50,'yyyyyyyyyyyyyy'),
-(26,51,'mais um'),
-(30,53,'ppp');
 
 /*Table structure for table `paciente` */
 
@@ -123,14 +96,6 @@ CREATE TABLE `paciente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 /*Data for the table `paciente` */
-
-insert  into `paciente`(`id`,`mp`,`nome`,`idade`,`email`,`numero_contato`) values 
-(36,640001,'Mateus Vinicius Mota',25,'mateus@gmail.com','71993760967 / 7133089473'),
-(38,130001,'Jose',30,'jose@gmail.com',''),
-(43,830001,'Mateus Vinicius',5,'aa@a','(71) 993760967/ (71)993760967 '),
-(44,820001,'Mateus Vinicius',5,'aa@a','(71) 993760967 / (71) 93760967 / (77) 777777777/(71) 33089473'),
-(45,930001,'Mateus Vinicius',5,'aa@a','(71) 993760967/(71) 93760967/(77) 777777777/(71) 33089473'),
-(46,730001,'Andre',80,'aa@abbbbb','(71) 993760967/(33) 333333333/(88) 888888888/555) 555555555');
 
 /*Table structure for table `tipo_usuario` */
 
@@ -168,8 +133,7 @@ CREATE TABLE `usuario` (
 /*Data for the table `usuario` */
 
 insert  into `usuario`(`id`,`nome`,`id_tipo`,`email`,`senha`) values 
-(1,'Mateus',3,'mateussvinicius22@gmail.com','21232f297a57a5a743894a0e4a801fc3'),
-(10,'Julia',1,'ju.silva@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+(1,'Mateus',3,'mateussvinicius22@gmail.com','202cb962ac59075b964b07152d234b70');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
