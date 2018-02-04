@@ -50,5 +50,14 @@ class Usuario_model extends CI_Model{
 		$result = $this->db->get("usuario")->row_array();
 		return $result;
 	}
+	public function mudar_senha($antiga, $nova, $id){
+		$antiga = md5($antiga);
+		$nova = md5($nova);
+		$this->db->where("id", $id);
+		$senha = array("senha" => $nova);
+		return $this->db->update("usuario", $senha);
+		
+		
+	}
 	
 }

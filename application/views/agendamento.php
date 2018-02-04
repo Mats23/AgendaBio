@@ -28,9 +28,12 @@
 		              <td><?=$pacientes["nome"]?></td>
 		              <td><?=$pacientes["idade"]?></td>
 		              <td><?=$pacientes["email"]?></td>
-		              <td><?=$pacientes["numero"]?></td>
+		              <td><?=$pacientes["numero_contato"]?></td>
 		              <form method="post" action="<?=base_url("agendamento/agendar")?>">
 		              	<td><button type="submit" class="btn btn-primary" value="<?=$pacientes["id"]?>" name="id_paciente">Agendar</button></td>
+		              </form>
+		               <form method="post" action="<?=base_url("agendamento/reagendar")?>">
+		              	<td><button type="submit" class="btn btn-primary" value="<?=$pacientes["id"]?>" name="id_paciente">Reagendar</button></td>
 		              </form>
 		            </tr>
 		          <?php endforeach ?>

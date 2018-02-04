@@ -4,9 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Paciente extends CI_Controller {
 
 	public function index(){
+		autoriza();
 		$this->load->view('cad_paciente');
 	}
 	public function salvar(){
+		autoriza();
 		$this->load->model("Paciente_model");
 		$this->load->model("Contato_model");
 		$this->load->model("Endereco_model");
@@ -20,8 +22,15 @@ class Paciente extends CI_Controller {
 		$numero = $this->input->post("numero_resd");
 		$mp = rand(5, 100);
 		$mp = gerar_id($mp);
-		$id = $this->Paciente_model->salvarPaciente($mp, $nome, $idade, $email);
+		$data = array(
+			"mp" => $mp,
+			"nome" => $nome,
+			"email" => $email,
+			"idade" => $idade,	
+			"numero_contato" => $this->input->post("ctt1")."/".$this->input->post("ctt2")."/".$this->input->post("ctt_comercial")."/".$this->input->post("ctt_resid"));
+		$id = $this->Paciente_model->salvarPaciente($data);
 		$result = $this->Endereco_model->salvar($id, $rua, $bairro, $cidade, $numero);
+		/*
 		if($result) {
 			if($this->input->post("ctt1")){
 				$ctt1 = $this->input->post("ctt1");
@@ -44,28 +53,29 @@ class Paciente extends CI_Controller {
 				$this->Contato_model->salvarContato($ctt_resid, $id, "residencial");
 			}
 
-
-			$dados = array("mensagem" => "Paciente Cadastrado com sucesso!",
-							"matricula" => "Numero da matrícula :". $mp
-						);
+			
+			
 			
 		}else{
 
 			$dados = array("mensagem_erro" => "O paciente não foi cadastrado!");
 		}
-			
+			*/
+		$dados = array("mensagem" => "Paciente Cadastrado com sucesso!",
+							"matricula" => "Numero da matrícula :". $mp
+						);
 		$this->load->view("cad_paciente", $dados);	
 
 	}
 
 	public function buscar(){
+		autoriza();
 		$this->load->model('Paciente_model');
-		$result = array( "paciente" => $this->Paciente_model->selectAll(),
-						 "contato" =>  $this->Paciente_model->selectCtt()	
-		);
+		$result["paciente"] = $this->Paciente_model->selectAll();
 		$this->load->view('buscar_paciente', $result);
 	}
 	public function buscarPaciente(){
+		autoriza();
 		$this->load->model('Paciente_model');
 		$info = $this->input->post("paciente");
 		if(is_numeric($info)){
@@ -73,16 +83,20 @@ class Paciente extends CI_Controller {
 		}else{
 			$result["paciente"] = $this->Paciente_model->buscarPorNome($info);
 		}
-	
 		$this->load->view('buscar_paciente', $result);
 	}
 	public function editar(){
+		autoriza();
 		$this->load->model("Paciente_model");
 		$id = $this->input->post("id_paciente");
-		$data["dados"] = $this->Paciente_model->selectById($id);
-		$this->load->view('editar_paciente', $data);
+		$data["dados"] = $this->Paciente_model->selectCttById($id);
+		$contato = explode("/" ,$data["dados"]["numero_contato"]);
+		$info = array("dados" => $this->Paciente_model->selectById($id),
+						"contatos"=> $contato );	
+		$this->load->view('editar_paciente', $info);
 	}
 	public function editarPaciente(){
+		autoriza();
 		$this->load->model("Paciente_model");
 		$id = $this->input->post("id_paciente");
 		$nome = $this->input->post("nomePaciente");

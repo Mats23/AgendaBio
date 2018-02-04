@@ -28,7 +28,7 @@
 	              <td><?=$pacientes["nome"]?></td>
 	              <td><?=$pacientes["idade"]?></td>
 	              <td><?=$pacientes["email"]?></td>
-	              <td><?=$pacientes["numero"]?></td>
+	              <td><?=$pacientes["numero_contato"]?></td>
 	              <form method="post" action="<?=base_url("paciente/editar")?>">
 	              	<td><button type="submit" class="btn btn-primary" value="<?=$pacientes["id"]?>" name="id_paciente">Editar</button></td>
 	              </form>	

@@ -1,5 +1,8 @@
 <?php $this->load->view("header") ?>
 	<?php $this->load->view("menu") ?>
+    <?php if($_SESSION["usuario"]["id_tipo"] == 1){
+        redirect("board");
+      } ?>
   <div class="container">  
 	  <form action="<?=base_url("usuario/buscarUser")?>" class="form-horizontal" method="post">
 	  	<div class="input-group">
@@ -27,6 +30,9 @@
               <td><?=$users["cargo"]?></td>
               <form method="post" action="<?=base_url("usuario/editar")?>">
                 <td><button type="submit" class="btn btn-primary" name="id_user" value="<?=$users["id"]?>">Editar</button></td>
+              </form>
+              <form method="post" action="<?=base_url("usuario/mudarSenha")?>">
+                <td><button type="submit" class="btn btn-primary" name="id_user" value="<?=$users["id"]?>">Alterar Senha</button></td>
               </form>
             </tr> 
             <tr>

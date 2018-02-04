@@ -36,7 +36,7 @@
 						  	<label class="control-label col-md-4">Contato 1:</label>
 						  	<div class="row">
 							  	<div class="col-sm-4">
-							  		<input type="tel" class="form-control" maxlength="15" onkeypress="mascara(this)" name="ctt1" value="<?php echo "".isset($dados["numero"])?$dados["numero"]: '' ?>">
+							  		<input type="tel" class="form-control" maxlength="15" onkeypress="mascara(this)" name="ctt1" value="<?php echo "".isset($contatos["0"])?$contatos["0"]: '' ?>">
 							  	</div>
 							</div>
 						</div>
@@ -44,7 +44,7 @@
 						  	<label class="control-label col-md-4">Contato 2:</label>
 							<div class="row">  	
 							  	<div class="col-sm-4">
-							  		<input type="tel" class="form-control"  maxlength="15" onkeypress="mascara(this)" name="ctt2">
+							  		<input type="tel" class="form-control"  maxlength="15" onkeypress="mascara(this)" name="ctt2" value="<?php echo "".isset($contatos["1"])?$contatos["1"]: '' ?>">
 							  	</div>
 							</div>
 						</div>
@@ -53,13 +53,13 @@
 				<div class="form-group">
 					<label class="control-label col-sm-3">Contato Comercial:</label>	  
 						<div class="col-sm-4">
-						  	<input type="tel" class="form-control" maxlength="15" onkeypress="mascara(this)" name="ctt_comercial">			
+						  	<input type="tel" class="form-control" maxlength="15" onkeypress="mascara(this)" name="ctt_comercial" value="<?php echo "".isset($contatos["2"])?$contatos["2"]: '' ?>">			
 					</div>  	
 				</div>
 				  	<div class="form-group">
 						<label class="control-label col-sm-3">Contato Residencial:</label>	  
 							<div class="col-sm-4">
-						  		<input type="tel" class="form-control" id="4" maxlength="15" onkeypress="mascara(this)" name="ctt_resid">
+						  		<input type="tel" class="form-control" id="4" maxlength="15" onkeypress="mascara(this)" name="ctt_resid" value="<?php echo "".isset($contatos["3"])?$contatos["3"]: '' ?>">
 							</div>	
 				  	</div>
 				 <div class="container">

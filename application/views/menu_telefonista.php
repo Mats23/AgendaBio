@@ -2,6 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
   <ul class="navbar-nav">
     <li class="nav-item">
+      <a class="nav-link" href="<?=base_url("board")?>">Home</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="<?=base_url("board")?>">Agendamento</a>
     </li>
     <li class="nav-item dropdown">

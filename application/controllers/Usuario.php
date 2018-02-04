@@ -4,37 +4,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usuario extends CI_Controller {
 
 	public function index(){
+		autoriza();
+		permissao();
 		$this->load->model("Tipo_usuario_model"); 
  	 	$dados["cargo"] = $this->Tipo_usuario_model->listarCargos();  
 		$this->load->view('cad_usuario', $dados);
 	}
 	public function validar(){
 		$this->load->model("Usuario_model");
-        $this->load->model("tipo_usuario_model");
+        $this->load->model("Tipo_usuario_model");
         $this->load->model("Agendamento_model");
-		$dados["agenda"] = 
         $email = $this->input->post("userLogin");
         $senha = $this->input->post("pswd"); 
         $senhaMD5 = md5($senha);
         $usuario = $this->Usuario_model->validarUser($email,$senhaMD5); 
-        $result = $this->tipo_usuario_model->nivel($usuario["id_tipo"]);  
-		if($result["nivel"] == 3){
-			$dados =array(
-				"nivel" => $this->load->view('menu'),
-				"agenda" => $this->Agendamento_model->selectAll()
-			);
-		}elseif($result["nivel"] == 2) {
-			$dados =array(
-				"nivel" => $this->load->view('menu_medico'),
-				"agenda" => $this->Agendamento_model->selectAll()
-			);
-		}elseif($result["nivel"] == 1){
-			$dados =array(
-				"nivel" => $this->load->view('menu_telefonista'),
-				"agenda" => $this->Agendamento_model->selectAll()
-			);
-		}	
-		  		
+        $dados["agenda"] = $this->Agendamento_model->selectAll(); 		
         if($usuario){
             $this->session->set_userdata("usuario", $usuario);
             $this->load->view('board', $dados);
@@ -45,6 +29,8 @@ class Usuario extends CI_Controller {
     }
 	}
 	public function salvar(){
+		autoriza();
+		permissao();
 		$this->load->model("Usuario_model");
 		$this->load->model("Tipo_usuario_model");
 		$user = $this->input->post("email_usuario");
@@ -63,6 +49,8 @@ class Usuario extends CI_Controller {
 	}
 
 	public function buscar(){
+		autoriza();
+		permissao();
 		$this->load->model("Usuario_model");
 		$this->load->model("Tipo_usuario_model");
 		$dados["user"] = $this->Usuario_model->selectAll();
@@ -70,6 +58,8 @@ class Usuario extends CI_Controller {
 	}
 
 	public function buscarUser(){
+		autoriza();
+		permissao();
 		$this->load->model("Usuario_model");
 		$user = $this->input->post("user");
 		$result["user"] = $this->Usuario_model->buscarUsuario($user);
@@ -78,6 +68,8 @@ class Usuario extends CI_Controller {
 
 
 	public function editar(){
+		autoriza();
+		permissao();
 		$id = $this->input->post("id_user");
 		$this->load->model("Tipo_usuario_model");
 		$this->load->model("Usuario_model");
@@ -87,6 +79,8 @@ class Usuario extends CI_Controller {
 		$this->load->view("editar_usuario", $dados);
 	}
 	public function editarUser(){
+		autoriza();
+		permissao();
 		$this->load->model("Usuario_model");
 		$this->load->model("Tipo_usuario_model");
 		$id = $this->input->post("id_usuario");
@@ -110,6 +104,30 @@ class Usuario extends CI_Controller {
 		$this->load->view("editar_usuario", $dados);
 
 	}	
+	public function mudarSenha(){
+		autoriza();
+		permissao();
+		$dado["user"] = $this->input->post("id_user");
+		$this->load->view("mudar_senha", $dado);
+	}
+	public function novaSenha(){
+		autoriza();
+		permissao();
+		$this->load->model("Usuario_model");
+		$antiga = $this->input->post("antiga_senha");
+		$nova = $this->input->post("nova_senha");
+		$id = $this->input->post("id_user");
+		
+		$successo = $this->Usuario_model->mudar_senha($antiga, $nova, $id);
+		if($successo){
+			$dados = array("mensagem" => "Senha alterada com sucesso",
+							"user" => $id);
+		}else{
+			$dados = array("mensagem_erro" => "Senha alterada com sucesso",
+							"user" => $id);
+		}
+		$this->load->view("mudar_senha", $dados);
 
 	}
+}
 

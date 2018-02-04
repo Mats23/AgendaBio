@@ -1,6 +1,5 @@
 <?php $this->load->view("header") ?>
 	<?php $this->load->view("menu") ?>
-	 
   <div class="container">
       <?php if(isset($mensagem)){ ?>
       	  <center>

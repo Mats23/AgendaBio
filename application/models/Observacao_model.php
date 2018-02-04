@@ -11,4 +11,14 @@ class Observacao_model extends CI_Model{
 	}
 
 
+	public function replaceObs($obs, $id_agendamento){
+		$data = array(
+			"informacao" => $obs
+		);
+		$this->db->where("id_agendamento", $id_agendamento);
+		$result = $this->db->update("observacao", $data);
+		return $result;
+	}
+
+
 }

@@ -11,7 +11,7 @@
         	<center>
         		<p class="alert-danger"><?=$mensagem?></p>
         	</center>  
-      <?php }?>	 	 
+      <?php }?>	 	
 	  <h2 style="text-align: center">Novo Paciente</h2>	
 	  <form method="post" action="<?=base_url("paciente/salvar")?>" class="form-horizontal">
 			  	<div class="form-group">
@@ -41,7 +41,7 @@
 					  	<label class="control-label col-md-4">Contato 1:</label>
 					  	<div class="row">
 						  	<div class="col-sm-4">
-						  		<input type="tel" class="form-control" maxlength="15" onkeypress="mascara(this)" name="ctt1">
+						  		<input type="tel" class="form-control" required maxlength="15" onkeypress="mascara(this)" name="ctt1">
 						  	</div>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 					  	<label class="control-label col-md-4">Contato 2:</label>
 						<div class="row">  	
 						  	<div class="col-sm-4">
-						  		<input type="tel" class="form-control" id="2" maxlength="15" onkeypress="mascara(this)" name="ctt2">
+						  		<input type="tel" class="form-control" required maxlength="15" onkeypress="mascara(this)" name="ctt2">
 						  	</div>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 						<label class="control-label col-sm-1">Rua:</label>
 						<div class="row">
 							<div class="col-sm-4">
-								<input type="text" class="form-control" name="rua_paciente">
+								<input type="text" class="form-control" required name="rua_paciente">
 							</div>
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label col-sm-1">Bairro:</label>
-								<input type="text" class="form-control" name="bairro_paciente">
+								<input type="text" class="form-control" required name="bairro_paciente">
 							</div>
 						</div>
 					</div>
@@ -92,7 +92,7 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label col-sm-1">Cidade:</label>
-								<input type="text" class="form-control" name="cidade_paciente">
+								<input type="text" class="form-control"  required name="cidade_paciente">
 							</div>
 						</div>
 					</div>
@@ -100,7 +100,7 @@
 						 <div class="row">
 							<div class="col-sm-1">
 								<label class="control-label col-sm-1">Nº:</label>
-								<input type="text" class="form-control" name="numero_resd">
+								<input type="text" class="form-control" required name="numero_resd">
 							</div>
 						 </div>
 					</div>
